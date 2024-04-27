@@ -17,8 +17,11 @@ spec:
     spec:
       containers:
       - name: myflaskapp
-        image: homelybore/demo-flask-app:1.0
+        image: homelybore/demo-flask-app:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
           protocol: TCP
+        envFrom:
+        - configMapRef:
+            name: myflask-configmap
