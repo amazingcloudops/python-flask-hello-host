@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
+import socket
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    host = request.headers.get('Host').split(':')[0]
+    host = socket.gethostname()
     return render_template('index.html', host=host)
 
 if __name__ == '__main__':
