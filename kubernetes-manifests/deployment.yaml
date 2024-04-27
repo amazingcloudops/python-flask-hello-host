@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myflaskapp
+  labels:
+    app: myflaskapp
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myflaskapp
+  template:
+    metadata:
+      labels:
+        app: myflaskapp
+    spec:
+      containers:
+      - name: myflaskapp
+        image: homelybore/demo-flask-app:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+          protocol: TCP
