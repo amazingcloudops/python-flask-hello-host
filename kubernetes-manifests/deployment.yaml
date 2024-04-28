@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: myflaskapp
-        image: homelybore/demo-flask-app:latest
+        image: amazingcloudops/demo-flask-app
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
